@@ -1,5 +1,8 @@
 const COLOR_LOW_POTENTIAL = 'hsla(2, 78%, 35%, 0.5)';
-const COLOR_HIGH_POTENTIAL = 'hsla(2, 78%, 100%, 0.5)';
+const COLOR_MEDIUM_LOW_POTENTIAL = 'hsla(2, 78%, 85%, 0.5)';
+const COLOR_NEUTRAL = 'white';
+const COLOR_MEDIUM_HIGH_POTENTIAL = 'hsla(223, 57%, 85%, 0.5)';
+const COLOR_HIGH_POTENTIAL = 'hsla(223, 57%, 35%, 0.5)';
 const COLOR_MISSING = 'hsla(0, 0%, 70%, 0.5)'
 const COLOR_OUTLINE = 'hsla(0, 0%, 100%, 1)'
 const COLOR_HOVER = 'white';
@@ -14,6 +17,12 @@ const CHOROPLETH_COLORING = [
     ],
     0,
     COLOR_LOW_POTENTIAL,
+    0.35,
+    COLOR_MEDIUM_LOW_POTENTIAL,
+    0.5,
+    COLOR_NEUTRAL,
+    0.65,
+    COLOR_MEDIUM_HIGH_POTENTIAL,
     1,
     COLOR_HIGH_POTENTIAL,
     101,

@@ -153,8 +153,8 @@
 
         map.getCanvas().style.cursor = 'default';
 
-        var layers = ['high', 'low'];
-        var colors = [COLOR_HIGH_POTENTIAL, COLOR_LOW_POTENTIAL];
+        var layers = ['above 50% from 600 m', '50% from 600m', 'below 50% from 600m', '0 at 600 m'];
+        var colors = [COLOR_HIGH_POTENTIAL, COLOR_NEUTRAL, COLOR_LOW_POTENTIAL, COLOR_MISSING];
 
         for (i = 0; i < layers.length; i++) {
             var layer = layers[i];
