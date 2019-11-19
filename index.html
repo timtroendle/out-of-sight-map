@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Possibility for electricity autarky in Europe</title>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+    <title>Onshore wind potential in Germany</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
     <script src='style.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
     crossorigin="anonymous">
@@ -16,7 +16,7 @@
 <body>
     <div id='map'></div>
     <div class='map-overlay' id='features'>
-        <h2>Renewable electricity autarky</h2>
+        <h2>Onshore wind potential</h2>
         <div id='pd'>
             <p>Hover over an area for details.<br>
             Zoom to switch administrative levels.</p>
@@ -26,66 +26,29 @@
                 <i onclick="showInfo()" class="fas fa-info-circle"></i>
                 <span class="tooltiptext">About the map</span>
             </div>
-            <a class="tooltip" href="https://doi.org/10.1016/j.esr.2019.100388" target="_blank">
+            <a class="tooltip" href="https://doi.org/10.2312/iass.2019.052" target="_blank">
                 <i class="fas fa-book-open"></i>
                 <span class="tooltiptext">Read publication</span>
-            </a>
-            <a class="tooltip" href="https://doi.org/10.5281/zenodo.3244984" target="_blank">
-                <i class="fas fa-database"></i>
-                <span class="tooltiptext">Download data</span>
             </a>
             <a class="tooltip" href="https://www.iass-potsdam.de/en/research-group/energy-transition-dynamics" target="_blank">
                 <i class="fas fa-user-circle"></i>
                 <span class="tooltiptext">Research group</span>
             </a>
-            <a class="tooltip" href="https://github.com/timtroendle/possibility-for-electricity-autarky-map/issues/new" target="_blank">
+            <a class="tooltip" href="https://github.com/timtroendle/out-of-sight-map/issues/new" target="_blank">
                 <i class="fas fa-flag"></i>
                 <span class="tooltiptext">Report an issue</span>
             </a>
         </div>
     </div>
     <div class='map-overlay' id='legend'>
-        <h2>Autarky is</h2>
+        <h2>Potential is</h2>
     </div>
     <div class='map-overlay' id="info" onclick="hideInfo()">
         <div id="infotext">
-            <h2>Possibility for renewable electricity autarky in Europe</h2>
-            <p>
-                This map visualises the possibility for renewable electricity autarky in Europe ---
-                for all municipalities, all regions, all countries, and all of Europe.
-                Possibility for autarky means <b>being able to fulfill local electricity demand with
-                100% renewable electricity from wind and solar power generated locally</b>.
-            </p>
-            <p>
-                Areas will not be able to become autarkic when their local electricity demand exceeds
-                the potential of renewable electricity generation. The potential used here
-                is based on technical constraints and some social constraints; for example we do
-                not allow generation on environmentally protected areas and we also prohibit open
-                field solar electricity on arable land. We call this potential the "technical-socal-potential"
-                and you can find the exact definition in our peer-reviewed article, see below.
-                Technically, much more electricity can be generated, and thus we consider autarky
-                impossible only if local electricity demand exceeds a potential based solely on technical
-                constraints:
-                <ul>
-                    <li>Autarky is likely possible (dark green), when the potential exceeds demand.</li>
-                    <li>Autarky may be possible (light green), when demand exceeds the potential,
-                        but technical potential is more than twice the demand.</li>
-                    <li>Autarky is likely impossible (light red), when demand exceeds the potential,
-                        and technical potential is less than twice the demand.</li>
-                    <li>Autarky is impossible (dark red), when demand exceeds technical potential.</li>
-                </ul>
-            </p>
-            <p>
-                The data is taken from the peer-reviewed article:
-                <q>Tröndle, T., Pfenninger, S., Lilliestam, J., 2019. Home-made or imported: on the
-                possibility for renewable electricity autarky on all scales in Europe. Energy
-                Strategy Reviews 26.
-                <a href=https://doi.org/10.1016/j.esr.2019.100388>https://doi.org/10.1016/j.esr.2019.100388</a></q>.
-                <b>If you make use of the data in academic work, please cite the article.</b>
-            </p>
+            <h2>Onshore wind potential in Germany</h2>
             <p>
                 Did you find an issue in the data? Please
-                <a href="https://github.com/timtroendle/possibility-for-electricity-autarky-map/issues/new">
+                <a href="https://github.com/timtroendle/out-of-sight-map/issues/new">
                     report it.
                 </a>
             </p>
@@ -95,10 +58,12 @@
         </div>
     </div>
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoidGltdHJvZW5kbGUiLCJhIjoiY2pxYXRvcHp0M2NidTN4cDMxdXdmZ2VpZSJ9.Yt-BUdLmsq9d4wjDxEWd_g';
+        mapboxgl.accessToken = 'pk.eyJ1IjoidGltdHJvZW5kbGUiLCJhIjoiY2szNjFjbjUwMGhmbjNjbXYzZ2JoenU0bSJ9.Vfwb1BD9jSL2-Wk2bCNByw';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/timtroendle/cjqhsfrmz0nb82rqcsk6z8po6'
+            style: 'mapbox://styles/timtroendle/cjqhsfrmz0nb82rqcsk6z8po6',
+            center: [10, 51],
+            zoom: 5
         });
         map.addControl(new mapboxgl.ScaleControl({unit: 'metric'}));
         map.on('load', function() {
@@ -107,93 +72,79 @@
 
             map.on('mousemove', function(e) {
             var unit = map.queryRenderedFeatures(e.point, {
-                layers: ['continental', 'national', 'regional', 'municipal']
+                layers: ['national', 'regional', 'municipal']
             });
 
             if (unit.length > 0) {
-                var potential = unit[0].properties.total_potential_twh_per_year
-                var energy_unit = "TWh"
-                var demand = unit[0].properties.demand_twh_per_year
-                var statement = unit[0].properties.our_rating
-                if (potential < 0.1 | demand < 0.1) {
-                    potential = potential * 1000
-                    demand = demand * 1000
-                    energy_unit = "GWh"
+                var potential = unit[0].properties.onshore_wind_mw
+                if (unit[0].properties.relative_onshore_wind) {
+                    var potential_600 = potential / unit[0].properties.relative_onshore_wind;
+                } else {
+                    var potential_600 = 0;
+                }
+                if (potential > 1) {
+                    var potential_unit = "MW";
+                } else {
+                    var potential_unit = "kW";
+                    potential = potential * 1000;
+                    potential_600 = potential_600 * 1000;
                 }
                 document.getElementById('pd').innerHTML =
-                    '<p>in <strong>' + unit[0].properties.name + '</strong> ' +
-                    statement + '.</p>' +
-                    '<p><strong>' + unit[0].properties.population_sum.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> people<br>' +
-                    '<strong>' + demand.toLocaleString('en', {maximumFractionDigits : 1}) + '</strong> ' + energy_unit + ' electricity demand<br>' +
-                    '<strong>' + potential.toLocaleString('en', {maximumFractionDigits : 1}) + '</strong> ' + energy_unit + ' generation potential<br>';
+                    '<p>in <strong>' + unit[0].properties.name + '</strong><br> ' +
+                    '<strong>' + potential.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' at 1000 m<br>' +
+                    '<strong>' + potential_600.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' at 600 m<br>';
             } else {
                 document.getElementById('pd').innerHTML = '<p>Hover over an area for details.<br>Zoom to switch administrative levels.</p>';
             }
             });
 
-            var hoveredStateContinentId =  null;
             var hoveredStateNationId =  null;
             var hoveredStateRegionId =  null;
             var hoveredStateMunicipalityId =  null;
             // When the user moves their mouse over the state-fill layer, we'll update the
             // feature state for the feature under the mouse.
-            map.on("mousemove", "continental", function(e) {
-                if (e.features.length > 0) {
-                    if (hoveredStateContinentId) {
-                        map.setFeatureState({source: 'continental', sourceLayer: 'continentaltechnicalsocialpotential', id: hoveredStateContinentId}, { hover: false});
-                    }
-                    hoveredStateContinentId = e.features[0].id;
-                    map.setFeatureState({source: 'continental', sourceLayer: 'continentaltechnicalsocialpotential', id: hoveredStateContinentId}, { hover: true});
-                }
-            });
-            map.on("mouseleave", "continental", function() {
-                if (hoveredStateContinentId) {
-                    map.setFeatureState({source: 'continental', sourceLayer: 'continentaltechnicalsocialpotential', id: hoveredStateContinentId}, { hover: false});
-                }
-                hoveredStateContinentId =  null;
-            });
             map.on("mousemove", "national", function(e) {
                 if (e.features.length > 0) {
                     if (hoveredStateNationId) {
-                        map.setFeatureState({source: 'national', sourceLayer: 'nationaltechnicalsocialpotential', id: hoveredStateNationId}, { hover: false});
+                        map.setFeatureState({source: 'national', sourceLayer: 'nationaltechnicalpotentialenvprotection1000', id: hoveredStateNationId}, { hover: false});
                     }
                     hoveredStateNationId = e.features[0].id;
-                    map.setFeatureState({source: 'national', sourceLayer: 'nationaltechnicalsocialpotential', id: hoveredStateNationId}, { hover: true});
+                    map.setFeatureState({source: 'national', sourceLayer: 'nationaltechnicalpotentialenvprotection1000', id: hoveredStateNationId}, { hover: true});
                 }
             });
             map.on("mouseleave", "national", function() {
                 if (hoveredStateNationId) {
-                    map.setFeatureState({source: 'national', sourceLayer: 'nationaltechnicalsocialpotential', id: hoveredStateNationId}, { hover: false});
+                    map.setFeatureState({source: 'national', sourceLayer: 'nationaltechnicalpotentialenvprotection1000', id: hoveredStateNationId}, { hover: false});
                 }
                 hoveredStateNationId =  null;
             });
             map.on("mousemove", "regional", function(e) {
                 if (e.features.length > 0) {
                     if (hoveredStateRegionId) {
-                        map.setFeatureState({source: 'regional', sourceLayer: 'regionaltechnicalsocialpotential', id: hoveredStateRegionId}, { hover: false});
+                        map.setFeatureState({source: 'regional', sourceLayer: 'regionaltechnicalpotentialenvprotection1000', id: hoveredStateRegionId}, { hover: false});
                     }
                     hoveredStateRegionId = e.features[0].id;
-                    map.setFeatureState({source: 'regional', sourceLayer: 'regionaltechnicalsocialpotential', id: hoveredStateRegionId}, { hover: true});
+                    map.setFeatureState({source: 'regional', sourceLayer: 'regionaltechnicalpotentialenvprotection1000', id: hoveredStateRegionId}, { hover: true});
                 }
             });
             map.on("mouseleave", "regional", function() {
                 if (hoveredStateRegionId) {
-                    map.setFeatureState({source: 'regional', sourceLayer: 'regionaltechnicalsocialpotential', id: hoveredStateRegionId}, { hover: false});
+                    map.setFeatureState({source: 'regional', sourceLayer: 'regionaltechnicalpotentialenvprotection1000', id: hoveredStateRegionId}, { hover: false});
                 }
                 hoveredStateRegionId =  null;
             });
             map.on("mousemove", "municipal", function(e) {
                 if (e.features.length > 0) {
                     if (hoveredStateMunicipalityId) {
-                        map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalsocialpotential', id: hoveredStateMunicipalityId}, { hover: false});
+                        map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalpotentialenvprotection1000', id: hoveredStateMunicipalityId}, { hover: false});
                     }
                     hoveredStateMunicipalityId = e.features[0].id;
-                    map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalsocialpotential', id: hoveredStateMunicipalityId}, { hover: true});
+                    map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalpotentialenvprotection1000', id: hoveredStateMunicipalityId}, { hover: true});
                 }
             });
             map.on("mouseleave", "municipal", function() {
                 if (hoveredStateMunicipalityId) {
-                    map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalsocialpotential', id: hoveredStateMunicipalityId}, { hover: false});
+                    map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalpotentialenvprotection1000', id: hoveredStateMunicipalityId}, { hover: false});
                 }
                 hoveredStateMunicipalityId =  null;
             });
@@ -201,10 +152,9 @@
         });
 
         map.getCanvas().style.cursor = 'default';
-        map.fitBounds([[-15.8, 30], [37, 72]]);
 
-        var layers = ['likely possible', 'maybe possible', 'likely impossible', 'impossible'];
-        var colors = [COLOR_LIKELY_POSSIBLE, COLOR_MAYBE_POSSIBLE, COLOR_LIKELY_IMPOSSIBLE, COLOR_IMPOSSIBLE];
+        var layers = ['high', 'low'];
+        var colors = [COLOR_HIGH_POTENTIAL, COLOR_LOW_POTENTIAL];
 
         for (i = 0; i < layers.length; i++) {
             var layer = layers[i];

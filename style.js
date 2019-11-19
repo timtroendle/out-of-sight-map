@@ -1,24 +1,25 @@
-const COLOR_LIKELY_POSSIBLE = 'hsla(89, 47%, 40%, 0.6)';
-const COLOR_MAYBE_POSSIBLE = 'hsla(89, 47%, 40%, 0.4)';
-const COLOR_LIKELY_IMPOSSIBLE = 'hsla(2, 78%, 35%, 0.3)';
-const COLOR_IMPOSSIBLE = 'hsla(2, 78%, 35%, 0.5)'
-const COLOR_MISSING = 'hsla(0, 0%, 0%, 0)'
+const COLOR_LOW_POTENTIAL = 'hsla(2, 78%, 35%, 0.5)';
+const COLOR_HIGH_POTENTIAL = 'hsla(2, 78%, 100%, 0.5)';
+const COLOR_MISSING = 'hsla(0, 0%, 70%, 0.5)'
 const COLOR_OUTLINE = 'hsla(0, 0%, 100%, 1)'
 const COLOR_HOVER = 'white';
 
-const CONDITIONAL_COLORING = [
-    "match",
-    ["get", "our_rating"],
-    "is impossible",
-    COLOR_IMPOSSIBLE,
-    "is likely impossible",
-    COLOR_LIKELY_IMPOSSIBLE,
-    "is maybe possible",
-    COLOR_MAYBE_POSSIBLE,
-    "is likely possible",
-    COLOR_LIKELY_POSSIBLE,
-    COLOR_MISSING
-]
+const CHOROPLETH_COLORING = [
+    "interpolate",
+    ["linear"],
+    ["case",
+        ["has", "relative_onshore_wind"],
+        ["get", "relative_onshore_wind"],
+        101
+    ],
+    0,
+    COLOR_LOW_POTENTIAL,
+    1,
+    COLOR_HIGH_POTENTIAL,
+    101,
+    COLOR_MISSING,
+  ]
+
 const CONDITIONAL_BORDER = ["case",
     ["boolean", ["feature-state", "hover"], false],
     3,
@@ -35,57 +36,28 @@ function styleMap(map) {
             break;
         }
     }
-    map.addSource("continental", {
-        "type": "vector",
-        "url": "mapbox://timtroendle.8p5jv6p0"
-    });
     map.addSource("national", {
         "type": "vector",
-        "url": "mapbox://timtroendle.bena6hoy"
+        "url": "mapbox://timtroendle.0mooqazd"
     });
     map.addSource("regional", {
         "type": "vector",
-        "url": "mapbox://timtroendle.38ibxh4r"
+        "url": "mapbox://timtroendle.0spyaxzb"
     });
     map.addSource("municipal", {
         "type": "vector",
-        "url": "mapbox://timtroendle.a0731wai"
+        "url": "mapbox://timtroendle.7i1efddx"
     });
 
-    map.addLayer({
-        "id": "continental",
-        "type": "fill",
-        "source": "continental",
-        "source-layer": "continentaltechnicalsocialpotential",
-        "maxzoom": 3.5,
-        "layout": {},
-        "paint": {
-            "fill-color": CONDITIONAL_COLORING,
-            "fill-outline-color": COLOR_OUTLINE
-        }
-    }, firstSymbolId);
-    map.addLayer({
-        "id": "continental-borders",
-        "type": "line",
-        "source": 'continental',
-        "source-layer": "continentaltechnicalsocialpotential",
-        "maxzoom": 3.5,
-        "layout": {},
-        "paint": {
-            "line-color": COLOR_HOVER,
-            "line-width": CONDITIONAL_BORDER
-        }
-    }, firstSymbolId);
     map.addLayer({
         "id": "national",
         "type": "fill",
         "source": "national",
-        "source-layer": "nationaltechnicalsocialpotential",
-        "minzoom": 3.5,
+        "source-layer": "nationaltechnicalpotentialenvprotection1000",
         "maxzoom": 6,
         "layout": {},
         "paint": {
-            "fill-color": CONDITIONAL_COLORING,
+            "fill-color": CHOROPLETH_COLORING,
             "fill-opacity": 1,
             "fill-outline-color": COLOR_OUTLINE
         }
@@ -94,8 +66,7 @@ function styleMap(map) {
         "id": "national-borders",
         "type": "line",
         "source": 'national',
-        "source-layer": "nationaltechnicalsocialpotential",
-        "minzoom": 3.5,
+        "source-layer": "nationaltechnicalpotentialenvprotection1000",
         "maxzoom": 6,
         "layout": {},
         "paint": {
@@ -107,20 +78,20 @@ function styleMap(map) {
         "id": "regional",
         "type": "fill",
         "source": "regional",
-        "source-layer": "regionaltechnicalsocialpotential",
+        "source-layer": "regionaltechnicalpotentialenvprotection1000",
         "minzoom": 6,
         "maxzoom": 9,
         "layout": {},
         "paint": {
             "fill-outline-color": COLOR_OUTLINE,
-            "fill-color": CONDITIONAL_COLORING
+            "fill-color": CHOROPLETH_COLORING
         }
     }, firstSymbolId);
     map.addLayer({
         "id": "regional-borders",
         "type": "line",
         "source": 'regional',
-        "source-layer": "regionaltechnicalsocialpotential",
+        "source-layer": "regionaltechnicalpotentialenvprotection1000",
         "minzoom": 6,
         "maxzoom": 9,
         "layout": {},
@@ -133,11 +104,11 @@ function styleMap(map) {
         "id": "municipal",
         "type": "fill",
         "source": "municipal",
-        "source-layer": "municipaltechnicalsocialpotential",
+        "source-layer": "municipaltechnicalpotentialenvprotection1000",
         "minzoom": 9,
         "layout": {},
         "paint": {
-            "fill-color": CONDITIONAL_COLORING,
+            "fill-color": CHOROPLETH_COLORING,
             "fill-outline-color": COLOR_OUTLINE
         }
     }, firstSymbolId);
@@ -145,7 +116,7 @@ function styleMap(map) {
         "id": "municipal-borders",
         "type": "line",
         "source": 'municipal',
-        "source-layer": "municipaltechnicalsocialpotential",
+        "source-layer": "municipaltechnicalpotentialenvprotection1000",
         "minzoom": 9,
         "layout": {},
         "paint": {
