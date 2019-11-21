@@ -47,11 +47,11 @@ function styleMap(map) {
     }
     map.addSource("national", {
         "type": "vector",
-        "url": "mapbox://timtroendle.au96mymo"
+        "url": "mapbox://timtroendle.8leipepn"
     });
     map.addSource("regional", {
         "type": "vector",
-        "url": "mapbox://timtroendle.0iy3okzj"
+        "url": "mapbox://timtroendle.dhbdav4h"
     });
 
     map.addLayer({
@@ -59,7 +59,7 @@ function styleMap(map) {
         "type": "fill",
         "source": "national",
         "source-layer": "nationaltechnicalpotentialenvprotectionalldistances",
-        "maxzoom": 6,
+        "maxzoom": 5,
         "layout": {},
         "paint": {
             "fill-color": CHOROPLETH_COLORING,
@@ -72,7 +72,7 @@ function styleMap(map) {
         "type": "line",
         "source": 'national',
         "source-layer": "nationaltechnicalpotentialenvprotectionalldistances",
-        "maxzoom": 6,
+        "maxzoom": 5,
         "layout": {},
         "paint": {
             "line-color": COLOR_HOVER,
@@ -84,7 +84,7 @@ function styleMap(map) {
         "type": "fill",
         "source": "regional",
         "source-layer": "regionaltechnicalpotentialenvprotectionalldistances",
-        "minzoom": 6,
+        "minzoom": 5,
         "layout": {},
         "paint": {
             "fill-outline-color": COLOR_OUTLINE,
@@ -96,7 +96,7 @@ function styleMap(map) {
         "type": "line",
         "source": 'regional',
         "source-layer": "regionaltechnicalpotentialenvprotectionalldistances",
-        "minzoom": 6,
+        "minzoom": 5,
         "layout": {},
         "paint": {
             "line-color": COLOR_HOVER,
@@ -112,7 +112,7 @@ function styleMap(map) {
         },
         "source-layer": "national-boundaries-national--5fk3kj",
         "minzoom": 4,
-        "maxzoom": 6,
+        "maxzoom": 5,
         "layout": {},
         "paint": {
             "line-color": COLOR_OUTLINE,
@@ -127,7 +127,7 @@ function styleMap(map) {
             url: 'mapbox://timtroendle.djc7n2y2'
         },
         "source-layer": "national-boundaries-regional--0omid4",
-        "minzoom": 6,
+        "minzoom": 5,
         "maxzoom": 9,
         "layout": {},
         "paint": {
