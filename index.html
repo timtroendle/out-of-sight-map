@@ -44,8 +44,92 @@
         <div id="infotext">
             <h2>Windpotenzial an Land</h2>
             <p>
+                In dieser Studie untersuchen wir, wie der Mindestabstand von Windkraftanlagen zu
+                Siedlungsgebieten das Windpotenzial einschränkt. Um dies zu zeigen, und auch zu
+                belegen, welcher Mindestabstand einen weiteren Ausbau hin zur Zielerreichung
+                2030 und 2050 ermöglichen könnte, untersuchen wir das Potential mit
+                Mindestabständen 600-1200 m, in 200 m-Schritten. In unserer Untersuchung bestimmen
+                wir das technische Potenzial, also das Potenzial, das ausschließlich durch
+                technisch-geografische Bedingungen und durch die Mindestabstandsregel eingeschränkt
+                ist. Da wir explizit keine gegebenen Flächennutzungspläne verwenden, zeigen wir mit
+                unserer Methode das maximal mögliche Windenergiepotential. Das gleiche Modell wurde
+                für weitere Potentialstudien verwendet und veröffentlicht (siehe Tröndle et al., 2019).
+            </p>
+            <p>
+                Wir bestimmen das verfügbare Flächenpotenzial anhand von Satellitendaten. Wir legen
+                ein 10 Bo- gensekunden-Raster (~300 m) über Deutschland und bestimmen für jede Zelle,
+                ob und zu welchem Teil sie für Windkraft nutzbar ist. Wir wenden dazu vier
+                Ausschlusskriterien an: aktuelle Landnutzung und Bodenbedeckung
+                (European Space Agency, 2010), Höhenprofil (Reuter et al., 2007),
+                Naturschutz (UNEP-WCMC und IUCN, 2018) und Siedlungsflächen (Ferri et al., 2017).
+                Für Siedlungsflächen nutzen wir einen Datensatz mit einer hohen räumlichen Auflösung
+                von 2,5 m, die uns erlaubt, Mindestabstände zu Gebäuden akkurat abzubilden. Wir
+                bestimmen damit den Anteil jeder 300x300 m-Zelle, der für Windkraft zur Verfügung
+                steht. In der Analyse erlauben wir Windkrafterzeugung auf allen Freiflächen, die
+                nicht naturgeschützt sind und deren Steigung weniger als 20° beträgt, und nicht
+                innerhalb vom Mindestabstand (600-1200 m) liegen.
+            </p>
+            <p>
+                Anhand des resultierenden Flächenpotenzials schätzen wir das Potenzial für
+                installierbare Windkraft ab. Dabei gehen wir davon aus, dass alle Flächen gleichwertig
+                sind und nutzen eine proportionale Konstante. Wir nehmen an, dass auf jedem
+                Quadratkilometer 10 ± 2 MW Windkraft installiert werden können (McKenna et al., 2015).
+                Die Unsicherheit in der Schätzung des installierbaren Potenzials ergibt sich aus der
+                vereinfachenden Annahme der Gleichwertigkeit der Flächen und der Art der installierten
+                Windturbinen. Darüber hinaus beeinträchtigen dicht stehende Windturbinen die gegenseitige
+                Stromproduktion negativ (Adaramola and Krogstad, 2011), weswegen ein größerer Abstand
+                zwischen den Turbinen durchaus sinnvoll sein kann.
+            </p>
+            <ul>
+                <li>Tröndle, T., Pfenninger, S., Lilliestam, J., 2019. Home-made or imported: on the
+                    possibility for renewable electricity autarky on all scales in Europe. Energy
+                    Strategy Reviews 26.
+                    <a href="https://doi.org/10.1016/j.esr.2019.100388">
+                        https://doi.org/10.1016/j.esr.2019.100388
+                    </a>
+                </li>
+                <li>
+                    European Environment Agency, 2009. Europe’s onshore and offshore wind energy
+                    potential (Publication).
+                </li>
+                <li>
+                    Reuter, H.I., Nelson, A., Jarvis, A., 2007. An evaluation of void-filling
+                    interpolation methods for SRTM data. International Journal of Geographical
+                    Information Science 21, 983–1008.
+                </li>
+                <li>
+                    UNEP-WCMC, IUCN, 2018. Protected Planet: The World Database on Protected Areas
+                    (WDPA) [WWW Document]. Protected Planet. URL
+                    <a href="https://www.protectedplanet.net/">https://www.protectedplanet.net/</a>
+                    (accessed 2.2.18).
+                </li>
+                <li>
+                    Ferri, S., Siragusa, A., Sabo, F., Pafi, M., Halkia, M., 2017. The European
+                    Settlement Map 2017 Release; Methodology and output of the European Settlement
+                    Map (ESM2p5m). JRC.
+                    <a href="https://doi.org/10.2760/780799">
+                        https://doi.org/10.2760/780799
+                    </a>
+                </li>
+                <li>
+                    McKenna, R., Hollnaicher, S., Ostman v. d. Leye, P., Fichtner, W., 2015.
+                    Cost-potentials for large onshore wind turbines in Europe. Energy 83, 217–229.
+                    <a href="https://doi.org/10.1016/j.energy.2015.02.016">
+                        https://doi.org/10.1016/j.energy.2015.02.016
+                    </a>
+                </li>
+                <li>
+                    Adaramola, M.S., Krogstad, P.-Å., 2011. Experimental investigation of wake
+                    effects on wind turbine performance. Renewable Energy 36, 2078–2086.
+                    <a href="https://doi.org/10.1016/j.renene.2011.01.024">
+                        https://doi.org/10.1016/j.renene.2011.01.024
+                    </a>
+                </li>
+            </ul>
+            <p>
                 © 2018-2019 Tim Tröndle, Institute for Advanced Sustainability Studies Potsdam and Institute for Environmental Decisions, ETH Zürich
             </p>
+
         </div>
     </div>
     <script>

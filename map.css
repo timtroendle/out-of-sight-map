@@ -127,11 +127,11 @@ a:hover {
 
 #infotext{
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     color: white;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
 }
 
 #info a {
