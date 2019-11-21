@@ -11,8 +11,8 @@ const CHOROPLETH_COLORING = [
     "interpolate",
     ["linear"],
     ["case",
-        ["has", "relative_onshore_wind"],
-        ["get", "relative_onshore_wind"],
+        ["has", "onshore_wind_rel_1000_to_600"],
+        ["get", "onshore_wind_rel_1000_to_600"],
         101
     ],
     0,
@@ -47,22 +47,22 @@ function styleMap(map) {
     }
     map.addSource("national", {
         "type": "vector",
-        "url": "mapbox://timtroendle.0mooqazd"
+        "url": "mapbox://timtroendle.au96mymo"
     });
     map.addSource("regional", {
         "type": "vector",
-        "url": "mapbox://timtroendle.0spyaxzb"
+        "url": "mapbox://timtroendle.0iy3okzj"
     });
     map.addSource("municipal", {
         "type": "vector",
-        "url": "mapbox://timtroendle.7i1efddx"
+        "url": "mapbox://timtroendle.bu9gr242"
     });
 
     map.addLayer({
         "id": "national",
         "type": "fill",
         "source": "national",
-        "source-layer": "nationaltechnicalpotentialenvprotection1000",
+        "source-layer": "nationaltechnicalpotentialenvprotectionalldistances",
         "maxzoom": 6,
         "layout": {},
         "paint": {
@@ -75,7 +75,7 @@ function styleMap(map) {
         "id": "national-borders",
         "type": "line",
         "source": 'national',
-        "source-layer": "nationaltechnicalpotentialenvprotection1000",
+        "source-layer": "nationaltechnicalpotentialenvprotectionalldistances",
         "maxzoom": 6,
         "layout": {},
         "paint": {
@@ -87,7 +87,7 @@ function styleMap(map) {
         "id": "regional",
         "type": "fill",
         "source": "regional",
-        "source-layer": "regionaltechnicalpotentialenvprotection1000",
+        "source-layer": "regionaltechnicalpotentialenvprotectionalldistances",
         "minzoom": 6,
         "maxzoom": 9,
         "layout": {},
@@ -100,7 +100,7 @@ function styleMap(map) {
         "id": "regional-borders",
         "type": "line",
         "source": 'regional',
-        "source-layer": "regionaltechnicalpotentialenvprotection1000",
+        "source-layer": "regionaltechnicalpotentialenvprotectionalldistances",
         "minzoom": 6,
         "maxzoom": 9,
         "layout": {},
@@ -113,7 +113,7 @@ function styleMap(map) {
         "id": "municipal",
         "type": "fill",
         "source": "municipal",
-        "source-layer": "municipaltechnicalpotentialenvprotection1000",
+        "source-layer": "municipaltechnicalpotentialenvprotectionalldistances",
         "minzoom": 9,
         "layout": {},
         "paint": {
@@ -125,7 +125,7 @@ function styleMap(map) {
         "id": "municipal-borders",
         "type": "line",
         "source": 'municipal',
-        "source-layer": "municipaltechnicalpotentialenvprotection1000",
+        "source-layer": "municipaltechnicalpotentialenvprotectionalldistances",
         "minzoom": 9,
         "layout": {},
         "paint": {
