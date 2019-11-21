@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Onshore wind potential in Germany</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-language/v0.10.1/mapbox-gl-language.js'></script>
     <script src='style.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -16,42 +17,32 @@
 <body>
     <div id='map'></div>
     <div class='map-overlay' id='features'>
-        <h2>Onshore wind potential</h2>
+        <h2>Windpotenzial an Land</h2>
         <div id='pd'>
-            <p>Hover over an area for details.<br>
-            Zoom to switch administrative levels.</p>
+            <p>Hover über eine Gegend für Details.<br>
+            Zoom um zwischen administrativen Ebenen zu wechseln.</p>
         </div>
         <div id='buttons'>
             <div class="tooltip">
                 <i onclick="showInfo()" class="fas fa-info-circle"></i>
-                <span class="tooltiptext">About the map</span>
+                <span class="tooltiptext">Über die Karte</span>
             </div>
             <a class="tooltip" href="https://doi.org/10.2312/iass.2019.052" target="_blank">
                 <i class="fas fa-book-open"></i>
-                <span class="tooltiptext">Read publication</span>
+                <span class="tooltiptext">Publikation</span>
             </a>
             <a class="tooltip" href="https://www.iass-potsdam.de/en/research-group/energy-transition-dynamics" target="_blank">
                 <i class="fas fa-user-circle"></i>
-                <span class="tooltiptext">Research group</span>
-            </a>
-            <a class="tooltip" href="https://github.com/timtroendle/out-of-sight-map/issues/new" target="_blank">
-                <i class="fas fa-flag"></i>
-                <span class="tooltiptext">Report an issue</span>
+                <span class="tooltiptext">Forschungsgruppe</span>
             </a>
         </div>
     </div>
     <div class='map-overlay' id='legend'>
-        <h2>Potential is</h2>
+        <h2>Das Potential bei 1000 m ist</h2>
     </div>
     <div class='map-overlay' id="info" onclick="hideInfo()">
         <div id="infotext">
-            <h2>Onshore wind potential in Germany</h2>
-            <p>
-                Did you find an issue in the data? Please
-                <a href="https://github.com/timtroendle/out-of-sight-map/issues/new">
-                    report it.
-                </a>
-            </p>
+            <h2>Windpotenzial an Land</h2>
             <p>
                 © 2018-2019 Tim Tröndle, Institute for Advanced Sustainability Studies Potsdam and Institute for Environmental Decisions, ETH Zürich
             </p>
@@ -65,6 +56,8 @@
             center: [10, 51],
             zoom: 5
         });
+        var language = new MapboxLanguage();
+        map.addControl(language);
         map.addControl(new mapboxgl.ScaleControl({unit: 'metric'}));
         map.on('load', function() {
 
@@ -94,7 +87,7 @@
                     '<strong>' + potential.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' at 1000 m<br>' +
                     '<strong>' + potential_600.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' at 600 m<br>';
             } else {
-                document.getElementById('pd').innerHTML = '<p>Hover over an area for details.<br>Zoom to switch administrative levels.</p>';
+                document.getElementById('pd').innerHTML = '<p>Hover über eine Gegend für Details.<br>Zoom um zwischen administrativen Ebenen zu wechseln.</p>';
             }
             });
 
@@ -153,7 +146,7 @@
 
         map.getCanvas().style.cursor = 'default';
 
-        var layers = ['above 50% from 600 m', '50% from 600m', 'below 50% from 600m', '0 at 600 m'];
+        var layers = ['grösser 50% desjenigen bei 600 m', '50% desjenigen bei 600m', 'kleiner 50% desjenigen 600m', '0, wie auch bei 600 m'];
         var colors = [COLOR_HIGH_POTENTIAL, COLOR_NEUTRAL, COLOR_LOW_POTENTIAL, COLOR_MISSING];
 
         for (i = 0; i < layers.length; i++) {
