@@ -97,6 +97,7 @@ a:hover {
 
 .legend-key {
     display: inline-block;
+    border: 1px solid black;
     border-radius: 20%;
     width: 10px;
     height: 10px;

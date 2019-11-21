@@ -159,11 +159,11 @@
                 var potential_1200 = unit[0].properties.onshore_wind_mw_1200
                 var potential_unit = "MW";
                 document.getElementById('pd').innerHTML =
-                    '<p>in <strong>' + unit[0].properties.name + '</strong><br> ' +
-                    '<strong>' + potential_600.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' bei 600 m<br>' +
-                    '<strong>' + potential_800.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' bei 800 m<br>' +
-                    '<strong>' + potential_1000.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' bei 1000 m<br>' +
-                    '<strong>' + potential_1200.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' at 1200 m<br>';
+                    '<p>in <strong>' + unit[0].properties.name + ':</strong><br> ' +
+                    '<strong>' + potential_600.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' bei 600 m Mindestabstand<br>' +
+                    '<strong>' + potential_800.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' bei 800 m Mindestabstand<br>' +
+                    '<strong>' + potential_1000.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' bei 1000 m Mindestabstand<br>' +
+                    '<strong>' + potential_1200.toLocaleString('en', {maximumFractionDigits : 0}) + '</strong> ' + potential_unit + ' bei 1200 m Mindestabstand<br>';
             } else {
                 document.getElementById('pd').innerHTML = '<p>Hover über eine Gegend für Details.<br>Zoom um zwischen administrativen Ebenen zu wechseln.</p>';
             }
@@ -208,7 +208,7 @@
 
         map.getCanvas().style.cursor = 'default';
 
-        var layers = ['grösser 50% desjenigen bei 600 m', '50% desjenigen bei 600m', 'kleiner 50% desjenigen 600m', '0, wie auch bei 600 m'];
+        var layers = ['> 50% des Potenzials bei 600 m', '50% des Potenzials bei 600m', '< 50% des Potenzials bei 600m', '0 MW'];
         var colors = [COLOR_HIGH_POTENTIAL, COLOR_NEUTRAL, COLOR_LOW_POTENTIAL, COLOR_MISSING];
 
         for (i = 0; i < layers.length; i++) {
