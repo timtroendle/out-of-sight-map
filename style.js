@@ -53,10 +53,6 @@ function styleMap(map) {
         "type": "vector",
         "url": "mapbox://timtroendle.0iy3okzj"
     });
-    map.addSource("municipal", {
-        "type": "vector",
-        "url": "mapbox://timtroendle.bu9gr242"
-    });
 
     map.addLayer({
         "id": "national",
@@ -89,7 +85,6 @@ function styleMap(map) {
         "source": "regional",
         "source-layer": "regionaltechnicalpotentialenvprotectionalldistances",
         "minzoom": 6,
-        "maxzoom": 9,
         "layout": {},
         "paint": {
             "fill-outline-color": COLOR_OUTLINE,
@@ -102,31 +97,6 @@ function styleMap(map) {
         "source": 'regional',
         "source-layer": "regionaltechnicalpotentialenvprotectionalldistances",
         "minzoom": 6,
-        "maxzoom": 9,
-        "layout": {},
-        "paint": {
-            "line-color": COLOR_HOVER,
-            "line-width": CONDITIONAL_BORDER
-        }
-    }, firstSymbolId);
-    map.addLayer({
-        "id": "municipal",
-        "type": "fill",
-        "source": "municipal",
-        "source-layer": "municipaltechnicalpotentialenvprotectionalldistances",
-        "minzoom": 9,
-        "layout": {},
-        "paint": {
-            "fill-color": CHOROPLETH_COLORING,
-            "fill-outline-color": COLOR_OUTLINE
-        }
-    }, firstSymbolId);
-    map.addLayer({
-        "id": "municipal-borders",
-        "type": "line",
-        "source": 'municipal',
-        "source-layer": "municipaltechnicalpotentialenvprotectionalldistances",
-        "minzoom": 9,
         "layout": {},
         "paint": {
             "line-color": COLOR_HOVER,

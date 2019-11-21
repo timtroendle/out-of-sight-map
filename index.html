@@ -65,7 +65,7 @@
 
             map.on('mousemove', function(e) {
             var unit = map.queryRenderedFeatures(e.point, {
-                layers: ['national', 'regional', 'municipal']
+                layers: ['national', 'regional']
             });
 
             if (unit.length > 0) {
@@ -87,7 +87,6 @@
 
             var hoveredStateNationId =  null;
             var hoveredStateRegionId =  null;
-            var hoveredStateMunicipalityId =  null;
             // When the user moves their mouse over the state-fill layer, we'll update the
             // feature state for the feature under the mouse.
             map.on("mousemove", "national", function(e) {
@@ -119,21 +118,6 @@
                     map.setFeatureState({source: 'regional', sourceLayer: 'regionaltechnicalpotentialenvprotectionalldistances', id: hoveredStateRegionId}, { hover: false});
                 }
                 hoveredStateRegionId =  null;
-            });
-            map.on("mousemove", "municipal", function(e) {
-                if (e.features.length > 0) {
-                    if (hoveredStateMunicipalityId) {
-                        map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalpotentialenvprotectionalldistances', id: hoveredStateMunicipalityId}, { hover: false});
-                    }
-                    hoveredStateMunicipalityId = e.features[0].id;
-                    map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalpotentialenvprotectionalldistances', id: hoveredStateMunicipalityId}, { hover: true});
-                }
-            });
-            map.on("mouseleave", "municipal", function() {
-                if (hoveredStateMunicipalityId) {
-                    map.setFeatureState({source: 'municipal', sourceLayer: 'municipaltechnicalpotentialenvprotectionalldistances', id: hoveredStateMunicipalityId}, { hover: false});
-                }
-                hoveredStateMunicipalityId =  null;
             });
 
         });
