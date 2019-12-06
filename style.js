@@ -47,11 +47,11 @@ function styleMap(map) {
     }
     map.addSource("national", {
         "type": "vector",
-        "url": "mapbox://timtroendle.8leipepn"
+        "url": "mapbox://timtroendle.b06ogfs2"
     });
     map.addSource("regional", {
         "type": "vector",
-        "url": "mapbox://timtroendle.dhbdav4h"
+        "url": "mapbox://timtroendle.denhjn5p"
     });
 
     map.addLayer({
